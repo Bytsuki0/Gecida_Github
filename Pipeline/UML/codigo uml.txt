@@ -34,6 +34,7 @@ partition "Fase 3 - Pré-processamento" {
 
 partition "Fase 4 - Modelagem" {
     :**Divisão treino / validação**\nK-Fold (k=5) estratificado · train_test_split;
+    :**Pesquisa Bibliogréfica**\n Novas ferramentas de regressâo lienar . Modelo atual de previsão;
     
     fork
         :**Linear**\nRegression baseline;
