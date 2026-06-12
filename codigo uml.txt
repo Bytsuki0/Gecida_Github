@@ -1,0 +1,64 @@
+@startuml
+skinparam HTMLFormatting true
+skinparam DefaultFontName Arial
+
+start
+
+partition "Fase 1 - Carregamento de Dados" {
+    :**Carregar train.csv e test.csv**\npd.read_csv · inspeção inicial de shape;
+}
+
+partition "Fase 2 - Análise Exploratória (EDA)" {
+    :**Descrição das variáveis**\ndtypes · describe() · cardinalidade · % NaN;
+    :**Distribuição da variável alvo**\nHistograma · boxplot · skewness · kurtosis;
+    :**Análise de variáveis numéricas**\nDistribuições · outliers IQR · scatter vs alvo;
+    :**Análise de variáveis categóricas**\nBarplots · boxplot por categoria · frequências;
+    :**Matriz de correlação**\nPearson · Spearman · heatmap seaborn;
+    :**Engenharia de features (EDA)**\nIs_Weekend · interações Length×Host_Pop;
+}
+
+partition "Fase 3 - Pré-processamento" {
+    :**Tratamento de valores ausentes (NaN)**;
+    if (NaN na coluna > 50%?) then (Sim)
+        :Drop coluna;
+    elseif (NaN na linha > 25%?) then (Sim)
+        :Drop linha;
+    else (Não)
+    endif
+    :Mediana num. · moda cat. · KNN Imputer;
+    :**Tratamento de outliers**\nIQR clipping · winsorization · z-score > 3;
+    :**Encoding de variáveis categóricas**\nOrdinal (Pub_Time) · OHE (Genre, Day);
+    :**Normalização / escalonamento**\nStandardScaler · MinMaxScaler (por modelo);
+    :**Seleção de features**\nVIF · feature importance · correlação > 0.9;
+}
+
+partition "Fase 4 - Modelagem" {
+    :**Divisão treino / validação**\nK-Fold (k=5) estratificado · train_test_split;
+    
+    fork
+        :**Linear**\nRegression baseline;
+    fork again
+        :**Random**\nForest Regressor;
+    fork again
+        :**XGBoost**\n/ LightGBM Regressor;
+    fork again
+        :**Outros**\n/ Regressores descobertos comparação e teste;
+    end fork
+
+    :**Avaliação de métricas**\nRMSE · MAE · R² · RMSLE (cross-val);
+    :**Tuning de hiperparâmetros**\nGridSearch · RandomSearch · Optuna;
+    :**Ensemble / stacking**\nVotingRegressor · média ponderada por RMSE;
+}
+
+partition "Fase 5 - Validação com test.csv" {
+    :**Predição no conjunto test.csv**\nMelhor modelo treinado · pipeline completo;
+    :**Geração do submission.csv**\nid + Listening_Time_minutes previsto;
+}
+
+partition "Fase 6 - Relatório LaTeX / PDF" {
+    :**Compilação do relatório LaTeX**\nEDA · métricas · tabelas · gráficos exportados\nResultados dos modelos · conclusões;
+    :**PDF gerado (pdflatex)**\nRelatório final auto-contido;
+}
+
+stop
+@enduml
