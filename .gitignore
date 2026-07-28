@@ -4,3 +4,10 @@
 .venv
 venv/
 venv
+
+__pycache__/
+*.pyc
+./Disputa_venv
+.Disputa_venv
+Disputa_venv/
+Disputa_venv

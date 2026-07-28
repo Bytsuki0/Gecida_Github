@@ -1,0 +1,13 @@
+coluna,papel,dtype,n_preenchidos,n_nan,nan_pct,nunique,unicidade_pct,valor_dominante,dominante_pct,memoria_MB
+id,id,int64,750000,0,0.0,750000,100.0,0,0.0,5.722
+Podcast_Name,categorica,object,750000,0,0.0,48,0.006,Tech Talks,3.046,44.175
+Episode_Title,alta cardinalidade,object,750000,0,0.0,100,0.013,Episode 71,1.402,42.15
+Episode_Length_minutes,numerica,float64,662907,87093,11.612,12268,1.636,6.6,0.123,5.722
+Genre,categorica,object,750000,0,0.0,10,0.001,Sports,11.681,40.342
+Host_Popularity_percentage,numerica,float64,750000,0,0.0,8038,1.072,38.68,0.075,5.722
+Publication_Day,categorica,object,750000,0,0.0,7,0.001,Sunday,15.459,40.138
+Publication_Time,categorica,object,750000,0,0.0,4,0.001,Night,26.247,40.021
+Guest_Popularity_percentage,numerica,float64,603970,146030,19.471,10019,1.336,68.53,0.05,5.722
+Number_of_Ads,numerica,float64,749999,1,0.0,12,0.002,0.0,29.012,5.722
+Episode_Sentiment,categorica,object,750000,0,0.0,3,0.0,Neutral,33.505,40.53
+Listening_Time_minutes,alvo,float64,750000,0,0.0,42807,5.708,0.0,1.14,5.722

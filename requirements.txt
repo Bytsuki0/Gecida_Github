@@ -1,0 +1,8 @@
+# Fases 1 e 2 (carregamento + EDA)
+pandas>=2.2
+numpy>=1.26
+matplotlib>=3.8
+scipy>=1.11
+
+# Prototipo de interface (Pipeline/Streamlit.py)
+streamlit>=1.30

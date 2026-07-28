@@ -1,0 +1,17 @@
+severidade,coluna,achado,acao_sugerida
+critico,Episode_Length_minutes <= 0,1 linhas violam a regra (0.000%),inconsistencia logica - investigar antes de modelar
+critico,Guest_Popularity_percentage,"valores fora de [0, 100] (min 0.00, max 119.91)",valores impossiveis para um percentual - corrigir ou tratar como ausentes
+critico,Host_Popularity_percentage,"valores fora de [0, 100] (min 1.30, max 119.46)",valores impossiveis para um percentual - corrigir ou tratar como ausentes
+critico,Listening_Time_minutes > Episode_Length_minutes,2568 linhas violam a regra (0.342%),inconsistencia logica - investigar antes de modelar
+critico,Number_of_Ads > 10,9 linhas violam a regra (0.001%),inconsistencia logica - investigar antes de modelar
+atencao,Episode_Length_minutes,87093 ausentes (11.612%),imputar (mediana/moda/KNN) e criar flag de ausencia
+atencao,Episode_Title,100 categorias,OHE explode a dimensionalidade - usar target/ordinal encoding ou agrupamento
+atencao,Guest_Popularity_percentage,146030 ausentes (19.471%),imputar (mediana/moda/KNN) e criar flag de ausencia
+atencao,Number_of_Ads,1 ausentes (0.000%),imputar (mediana/moda/KNN) e criar flag de ausencia
+atencao,Number_of_Ads,assimetria de 6.03,"avaliar transformacao (log1p, Box-Cox) para modelos lineares"
+info,Episode_Length_minutes,pearson 0.917 com o alvo,preditora dominante - verificar se nao ha vazamento e usar como baseline
+info,Genre,eta2 = 0.00055,praticamente nenhuma associacao com o alvo - baixa prioridade
+info,Guest_Popularity_percentage,pearson -0.016 com o alvo,sinal linear desprezivel - checar relacao nao linear antes de descartar
+info,Number_of_Ads,apenas 12 valores distintos,numerica discreta - considerar tratamento categorico
+info,Publication_Day,eta2 = 0.00032,praticamente nenhuma associacao com o alvo - baixa prioridade
+info,Publication_Time,eta2 = 0.00061,praticamente nenhuma associacao com o alvo - baixa prioridade

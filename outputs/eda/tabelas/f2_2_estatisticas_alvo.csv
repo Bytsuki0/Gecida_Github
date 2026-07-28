@@ -1,0 +1,18 @@
+metrica,valor
+n,750000.0
+media,45.43740628813333
+mediana,43.37946
+desvio_padrao,27.138305827971262
+minimo,0.0
+p01,0.0
+p25,23.17835
+p75,64.81158
+p99,109.39634
+maximo,119.97
+skewness,0.3508122585099899
+kurtosis (excesso),-0.6612362930096807
+zeros_pct,1.1401333333333332
+negativos_pct,0.0
+outliers_IQR,0.0
+outliers_IQR_pct,0.0
+"p-valor normalidade (D'Agostino, n=5k)",6.2047285789419824e-74

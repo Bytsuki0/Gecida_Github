@@ -1,0 +1,3 @@
+dataset,linhas,colunas,memoria_MB,col_numericas,col_texto,celulas_nan_pct,linhas_com_nan_pct
+train,750000,12,281.69,6,6,2.59,28.127
+test,250000,11,91.99,5,6,2.821,28.066

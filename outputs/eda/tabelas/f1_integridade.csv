@@ -1,0 +1,7 @@
+checagem,valor,status,observacao
+alvo presente no train,Listening_Time_minutes,OK,
+NaN no alvo,0,OK,
+alvo ausente no test,True,OK,
+id unico no train,0,OK,
+sobreposicao de id train/test,0,OK,
+linhas duplicadas no train (sem id),0,OK,
