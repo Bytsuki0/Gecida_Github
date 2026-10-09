@@ -4,5 +4,11 @@ numpy>=1.26
 matplotlib>=3.8
 scipy>=1.11
 
+# Fase 3 (pre-processamento e engenharia de features)
+# scikit-learn: imputacao, encoding, escalonamento, importancia por permutacao
+scikit-learn>=1.5
+# pyarrow: grava as matrizes da Fase 3 em Parquet (preserva dtype, ~10x menor que CSV)
+pyarrow>=15.0
+
 # Prototipo de interface (Pipeline/Streamlit.py)
 streamlit>=1.30

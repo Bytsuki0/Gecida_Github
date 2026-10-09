@@ -1,0 +1,26 @@
+etapa,acao,qtd_train,qtd_test,detalhe
+3.1 domínio,"clip Host_Popularity_percentage em [0.0, 100.0]",25,12,
+3.1 domínio,"clip Guest_Popularity_percentage em [0.0, 100.0]",19,5,
+3.1 domínio,"nan Episode_Length_minutes em [0.0, inf]",1,0,
+3.1 domínio,"clip Number_of_Ads em [0.0, 3.0]",9,2,
+3.1 domínio,alvo recortado para a duração (excesso <= 5 min),2483,n/a,test não tem alvo
+3.1 domínio,linhas removidas (excesso > 5 min),84,n/a,
+3.2 NaN,linhas sem Podcast_Name ou Episode_Title,0,0,
+3.2 NaN,Genre -> 'Sem_classificacao',0,0,
+3.2 NaN,Episode_Sentiment -> 'Sem_classificacao',0,0,
+3.2 NaN,Publication_Day -> moda por Podcast_Name,0,0,
+3.2 NaN,Publication_Time -> moda por Podcast_Name,0,0,
+3.2 NaN,Episode_Length_minutes -> mediana do train (63.84),87094,28736,
+3.2 NaN,Guest_Popularity_percentage -> mediana do train (53.58),146020,48832,
+3.2 NaN,Number_of_Ads -> mediana do train (1.00),1,0,
+3.3 outliers,"Episode_Length_minutes recortada em [-36.89, 166.63] (iqr)",1,2,
+3.3 outliers,"Host_Popularity_percentage recortada em [-20.77, 139.71] (iqr)",0,0,
+3.3 outliers,"Guest_Popularity_percentage recortada em [-20.19, 125.78] (iqr)",0,0,
+3.3 outliers,"Number_of_Ads recortada em [-3.00, 5.00] (iqr)",0,0,
+3.4 features,10 features derivadas criadas,10,10,"Episode_Num, Is_Weekend, Ads_por_minuto, Length_x_Host_Pop, Pop_Media, Pop_Diferenca, Publication_Time_ord, Sentimento_ord, Length_Ausente, Sem_Convidado"
+3.5 encoding,"One-Hot em Genre, Publication_Day",15,15,
+3.5 encoding,"target encoding em Podcast_Name, Episode_Title",2,2,
+3.7 seleção,Length_x_Host_Pop removida,1,1,"VIF 12,5 e infla Episode_Length para 8,3; produto de duas colunas presentes"
+3.7 seleção,Is_Weekend removida,1,1,= Publication_Day_Saturday + Publication_Day_Sunday (VIF infinito)
+3.7 seleção,Pop_Media removida,1,1,= (Host + Guest) / 2 (VIF infinito)
+3.7 seleção,Pop_Diferenca removida,1,1,= Host - Guest (VIF infinito)
