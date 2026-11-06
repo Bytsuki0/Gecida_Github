@@ -63,7 +63,6 @@ def aplicar_estilo() -> None:
             "figure.facecolor": SUPERFICIE,
             "axes.facecolor": SUPERFICIE,
             "savefig.facecolor": SUPERFICIE,
-            "font.family": ["Segoe UI", "DejaVu Sans", "sans-serif"],
             "font.size": 9,
             "axes.titlesize": 10.5,
             "axes.titleweight": "semibold",
